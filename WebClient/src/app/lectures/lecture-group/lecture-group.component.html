@@ -1,0 +1,8 @@
+<div class="container">
+  <div class="head" (click)="changeListVisibility()" [class.head-hidden]="listVisible">
+    {{group.name}}
+  </div>
+  <div class="items" [class.items-hidden]="listVisible">
+    <app-lecture-tile [hidden]="listVisible" *ngFor="let lecture of lectures" [lecture]="lecture"></app-lecture-tile>
+  </div>
+</div>

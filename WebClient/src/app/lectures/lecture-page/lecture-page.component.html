@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Заголовок темы</h1>
+  <div *ngFor="let element of elements">
+    <app-page-text *ngIf="this.elementsService.isTextElement(element)" [element]="element"></app-page-text>
+    <app-page-list *ngIf="this.elementsService.isListElement(element)" [element]="element"></app-page-list>
+
+  </div>
+</div>

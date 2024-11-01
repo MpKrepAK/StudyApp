@@ -1,0 +1,21 @@
+$link-color : white;
+$tile-color : white;
+
+a{
+  padding: 20px 20px;
+  font-size: 2rem;
+  display: block;
+  border-radius: 15px;
+  text-decoration: none;
+  //border: solid black 1px;
+  text-align: center;
+  font-weight: bold;
+  background: #57e1ff;
+  color: $link-color;
+  &:visited{
+    color: $link-color;
+  }
+  &:active{
+    color: $link-color;
+  }
+}

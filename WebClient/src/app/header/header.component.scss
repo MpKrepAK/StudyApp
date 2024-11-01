@@ -1,0 +1,52 @@
+$link-color : #939393;
+$profile-wh : 75px;
+
+header{
+  margin: 10px auto 0;
+  font-size: 3rem;
+  display: flex;
+  flex-direction: row;
+
+  *{
+    box-sizing: border-box;
+  }
+
+  a{
+    text-decoration: none;
+    padding: 10px;
+    &:visited{
+      color: $link-color;
+    }
+    &:active{
+      color: $link-color;
+    }
+    &.app-link{
+      font-weight: bold;
+    }
+  }
+  nav{
+    display: flex;
+    margin: 0 auto;
+    font-size: 0.7em;
+
+    ul{
+      list-style-type : none;
+      margin: 0 auto;
+      align-content: center;
+      justify-content: stretch;
+      li{
+        a{
+          color: #363636;
+          padding: 0 30px;
+        }
+      }
+    }
+  }
+
+  .profile{
+    background: black;
+    width: $profile-wh;
+    height: $profile-wh;
+    border-radius: 30px;
+  }
+}
