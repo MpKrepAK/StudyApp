@@ -1,1 +1,6 @@
-<p>page-files works!</p>
+<h2>{{element.title}}</h2>
+<div class="main-container">
+  <div class="container" *ngFor="let file of element.files">
+    <a [href]="file.link"><img [src]="file.fileType+'.png'" alt="file.png"/>{{file.link.split('\\').pop() || ''}}</a>
+  </div>
+</div>

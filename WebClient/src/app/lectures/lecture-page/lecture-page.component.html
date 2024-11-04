@@ -3,6 +3,7 @@
   <div *ngFor="let element of elements">
     <app-page-text *ngIf="this.elementsService.isTextElement(element)" [element]="element"></app-page-text>
     <app-page-list *ngIf="this.elementsService.isListElement(element)" [element]="element"></app-page-list>
-
+    <app-page-files  *ngIf="this.elementsService.isFileElement(element)" [element]="element"></app-page-files>
+    <app-page-image *ngIf="this.elementsService.isImageElement(element)" [element]="element"></app-page-image>
   </div>
 </div>

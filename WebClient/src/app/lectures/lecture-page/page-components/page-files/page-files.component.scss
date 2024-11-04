@@ -1,0 +1,40 @@
+h2{
+  padding-left: 10px;
+  font-size: 2em;
+}
+.main-container{
+  margin-left: 30px;
+  display: grid;
+  gap: 5px;
+}
+.container{
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.5em;
+}
+.container:nth-child(even) {
+  background-color: #beffea;
+}
+
+.container:nth-child(odd) {
+  background-color: #a3f8de;
+}
+img{
+  width: 32px;
+  height: 32px;
+}
+a{
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  align-items: center;
+  align-content: center;
+  gap: 20px;
+  color: #363636;
+  text-decoration: none;
+  &:before{
+    color: #363636;
+  }
+  &:visited{
+    color: #363636;
+  }
+}

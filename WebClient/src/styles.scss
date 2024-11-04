@@ -8,3 +8,13 @@ body{
   box-sizing: border-box;
   width: 80%;
 }
+
+a{
+  text-decoration: none;
+  &:before{
+    color: #363636;
+  }
+  &:visited{
+    color: #363636;
+  }
+}

@@ -1,5 +1,7 @@
 import {AbstractPageElement} from '../abstract-page-element';
+import {ConcreteFile} from './concrete-file';
 
 export interface PageFileElement extends AbstractPageElement{
-  links : string[];
+  title : string;
+  files : ConcreteFile[];
 }

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {AbstractPageElement} from './page-components/abstract-page-element';
 import {PageTextElement} from './page-components/page-text/page-text-element';
 import {PageListElement} from './page-components/page-list/page-list-element';
+import {PageFileElement} from './page-components/page-files/page-file-element';
+import {PageImageElement} from './page-components/page-image/page-image-element';
 
 @Injectable({
   providedIn: 'root'
@@ -63,13 +65,55 @@ export class PageElementsService {
       isOrdered: false,
       data : ['Чупапи', 'Меняня', 'Муняню']
     };
-    this.pageComponents.push(text1);
+    let file1 : PageFileElement = {
+      id:1,
+      index:1,
+      type:"file",
+      title : 'Файлики',
+      files : [
+        {
+          link : 'C:\\Users\\vovan\\Downloads\\gs.txt',
+          fileType : 'archive'
+        },
+        {
+          link : 'C:\\Users\\vovan\\Downloads\\gs.txt',
+          fileType : 'doc'
+        },
+        {
+          link : 'C:\\Users\\vovan\\Downloads\\gs.txt',
+          fileType : 'pdf'
+        },
+      ]
+    }
+    let img1 : PageImageElement = {
+      id:1,
+      index:1,
+      type:"image",
+      title : 'Фотачки',
+      images : [
+        {
+          link : 'file.png',
+          name : 'archive'
+        },
+        {
+          link : 'file.png',
+          name : 'doc'
+        },
+        {
+          link : 'file.png',
+          name : 'pdf'
+        },
+      ]
+    }
+    this.pageComponents.push(img1);
+    //this.pageComponents.push(file1);
+    //this.pageComponents.push(text1);
     // this.pageComponents.push(text2);
-    this.pageComponents.push(text3);
-    this.pageComponents.push(list1);
-    this.pageComponents.push(list2);
-    this.pageComponents.push(list3);
-    this.pageComponents.push(list4);
+    //this.pageComponents.push(text3);
+    //this.pageComponents.push(list1);
+    //this.pageComponents.push(list2);
+    //this.pageComponents.push(list3);
+    //this.pageComponents.push(list4);
   }
   isTextElement(element : AbstractPageElement): element is PageTextElement{
     return element.type==='text';
@@ -77,5 +121,12 @@ export class PageElementsService {
 
   isListElement(element: AbstractPageElement):element is PageListElement {
     return element.type==='list';
+  }
+
+  isFileElement(element: AbstractPageElement):element is PageFileElement {
+    return element.type==='file';
+  }
+  isImageElement(element: AbstractPageElement):element is PageImageElement {
+    return element.type==='image';
   }
 }
