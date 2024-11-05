@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Lecture} from '../lecture';
+import {GroupClasses} from '../groupClasses';
 
 @Component({
   selector: 'app-lecture-tile',
@@ -10,5 +10,5 @@ import {Lecture} from '../lecture';
 })
 export class LectureTileComponent {
   @Input()
-  lecture! : Lecture;
+  lecture! : GroupClasses;
 }

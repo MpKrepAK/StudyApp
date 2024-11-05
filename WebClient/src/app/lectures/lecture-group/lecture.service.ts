@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import {Lecture} from './lecture';
+import {GroupClasses} from './groupClasses';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LectureService {
-  lectures : Lecture[] = [];
+  lectures : GroupClasses[] = [];
   constructor() {
     this.lectures.push({
       id:1,

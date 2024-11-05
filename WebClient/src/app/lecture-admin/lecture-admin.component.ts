@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {NgForOf} from '@angular/common';
+import {AcademicSubject} from '../lectures-subjects/academicSubject';
 
 @Component({
   selector: 'app-lecture-admin',
@@ -12,4 +13,5 @@ import {NgForOf} from '@angular/common';
 })
 export class LectureAdminComponent {
   components : Component[] = [];
+  subjects : AcademicSubject[] = [];
 }

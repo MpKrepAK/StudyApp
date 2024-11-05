@@ -5,11 +5,13 @@ import {LecturesSubjectsComponent} from './lectures-subjects/lectures-subjects.c
 import {LecturesComponent} from './lectures/lectures.component';
 import {LecturePageComponent} from './lectures/lecture-page/lecture-page.component';
 import {LectureGroupComponent} from './lectures/lecture-group/lecture-group.component';
+import {LectureAdminComponent} from './lecture-admin/lecture-admin.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, LecturesSubjectsComponent, LecturesComponent, LecturePageComponent, LectureGroupComponent],
+  imports: [HttpClientModule, RouterOutlet, HeaderComponent, LecturesSubjectsComponent, LecturesComponent, LecturePageComponent, LectureGroupComponent, LectureAdminComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

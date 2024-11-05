@@ -1,9 +1,11 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {LectureTileComponent} from './lecture-tile/lecture-tile.component';
 import {LectureService} from './lecture.service';
-import {Lecture} from './lecture';
+import {GroupClasses} from './groupClasses';
 import {NgForOf, NgIf} from '@angular/common';
-import {LectureGroup} from '../lecture-group';
+import {SubjectGroup} from '../subject-group';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {AcademicSubject} from '../../lectures-subjects/academicSubject';
 
 @Component({
   selector: 'app-lecture-group',
@@ -11,21 +13,23 @@ import {LectureGroup} from '../lecture-group';
   imports: [
     LectureTileComponent,
     NgForOf,
-    NgIf
+    NgIf,
+    HttpClientModule
   ],
   templateUrl: './lecture-group.component.html',
   styleUrl: './lecture-group.component.scss'
 })
-export class LectureGroupComponent {
+export class LectureGroupComponent implements OnInit{
   @Input()
-  group! : LectureGroup;
-  lectures : Lecture[]=[];
+  group! : SubjectGroup;
   listVisible : boolean = true;
-  constructor(private lectureService : LectureService) {
-    this.lectures = lectureService.lectures;
+  constructor(private http : HttpClient) {
   }
   changeListVisibility(){
     this.listVisible = !this.listVisible;
+  }
+
+  ngOnInit() {
   }
 
 }
