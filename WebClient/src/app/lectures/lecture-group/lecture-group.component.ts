@@ -23,6 +23,8 @@ export class LectureGroupComponent implements OnInit{
   @Input()
   group! : SubjectGroup;
   listVisible : boolean = true;
+  @Input()
+  subjectId!: number;
   constructor(private http : HttpClient) {
   }
   changeListVisibility(){
