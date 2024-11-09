@@ -14,5 +14,4 @@ import {RouterLink} from '@angular/router';
 export class LectureTileComponent {
   @Input()
   lecture! : GroupClasses;
-  @Input() subjectId!: number;
 }

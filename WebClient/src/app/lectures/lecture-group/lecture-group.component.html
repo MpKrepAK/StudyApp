@@ -3,6 +3,6 @@
     {{group.name}}
   </div>
   <div class="items" [class.items-hidden]="listVisible">
-    <app-lecture-tile [hidden]="listVisible" *ngFor="let lecture of group.groupClasses" [subjectId]="subjectId" [lecture]="lecture"></app-lecture-tile>
+    <app-lecture-tile [hidden]="listVisible" *ngFor="let lecture of group.groupClasses" [lecture]="lecture"></app-lecture-tile>
   </div>
 </div>

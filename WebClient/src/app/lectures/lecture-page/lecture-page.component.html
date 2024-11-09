@@ -1,9 +1,9 @@
 <div class="container">
-  <h1>Заголовок темы</h1>
-  <div *ngFor="let element of elements">
-    <app-page-text *ngIf="this.elementsService.isTextElement(element)" [element]="element"></app-page-text>
-    <app-page-list *ngIf="this.elementsService.isListElement(element)" [element]="element"></app-page-list>
-    <app-page-files  *ngIf="this.elementsService.isFileElement(element)" [element]="element"></app-page-files>
-    <app-page-image *ngIf="this.elementsService.isImageElement(element)" [element]="element"></app-page-image>
+  <h1>{{groupClass.name}}</h1>
+  <div *ngFor="let element of groupClass.elements">
+    <app-page-text *ngIf="isTextElement(element)" [element]="element"></app-page-text>
+    <app-page-list *ngIf="isListElement(element)" [element]="element"></app-page-list>
+    <app-page-files  *ngIf="isFileElement(element)" [element]="element"></app-page-files>
+    <app-page-image *ngIf="isImageElement(element)" [element]="element"></app-page-image>
   </div>
 </div>
