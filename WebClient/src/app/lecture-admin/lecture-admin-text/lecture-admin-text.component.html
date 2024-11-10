@@ -1,1 +1,6 @@
-<p>lecture-admin-text works!</p>
+<div>
+  <label>Заголовок: <input [(ngModel)]="title"></label>
+  <label>Текст: <input [(ngModel)]="text"></label>
+  <button (click)="moveUp()">Выше</button>
+  <button (click)="moveDown()">Ниже</button>
+</div>

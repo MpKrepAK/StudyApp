@@ -1,15 +1,18 @@
 <div>
-
   <div>
-    <select  [(ngModel)]="selectedSubject">
-      <option *ngFor="let subject of subjects" [value]="subject.id">{{subject.name}}</option>
+    <select [(ngModel)]="selectedSubject" (change)="onSubjectChange()">
+      <option [ngValue]="null" disabled selected>Выберите предмет</option>
+      <option *ngFor="let subject of subjects" [ngValue]="subject">{{ subject.name }}</option>
     </select>
-    <select>
-      <option *ngFor="let group of selectedSubject.subjectGroups" [value]="group.id">{{group.id}}</option>
+
+    <!-- Второй select для выбора группы -->
+    <select [(ngModel)]="selectedGroupId" [disabled]="!selectedSubject">
+      <option [ngValue]="null" disabled selected>Выберите группу</option>
+      <option *ngFor="let group of selectedSubject?.subjectGroups" [value]="group.id">{{ group.name }}</option>
     </select>
   </div>
   <div>
-    <div *ngFor="let component of components"></div>
-    <button></button>
+    <ng-container #dynamicComponentContainer></ng-container>
+    <button (click)="addTextComponent()">Добавить текстовое поле</button>
   </div>
 </div>

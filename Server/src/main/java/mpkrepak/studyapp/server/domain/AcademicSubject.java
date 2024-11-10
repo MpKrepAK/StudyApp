@@ -1,11 +1,13 @@
 package mpkrepak.studyapp.server.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -16,6 +18,6 @@ public class AcademicSubject {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    @OneToMany(mappedBy = "academicSubject", fetch = FetchType.EAGER)
-    private Set<SubjectGroup> subjectGroups = new HashSet<SubjectGroup>();
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "academicSubject", cascade = CascadeType.ALL)
+    private List<SubjectGroup> subjectGroups;
 }

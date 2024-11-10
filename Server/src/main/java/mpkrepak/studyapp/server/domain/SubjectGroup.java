@@ -1,6 +1,8 @@
 package mpkrepak.studyapp.server.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -9,6 +11,7 @@ import lombok.ToString;
 import org.hibernate.annotations.Fetch;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -20,10 +23,10 @@ public class SubjectGroup {
     private long id;
     private String name;
     private int index;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JsonBackReference
     @JoinColumn(name = "subject_id")
     private AcademicSubject academicSubject;
     @OneToMany(mappedBy = "group",fetch = FetchType.EAGER)
-    private Set<GroupClass> groupClasses = new HashSet<>();
+    private List<GroupClass> groupClasses;
 }
