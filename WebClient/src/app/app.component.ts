@@ -7,11 +7,12 @@ import {LecturePageComponent} from './lectures/lecture-page/lecture-page.compone
 import {LectureGroupComponent} from './lectures/lecture-group/lecture-group.component';
 import {LectureAdminComponent} from './lecture-admin/lecture-admin.component';
 import {HttpClientModule} from '@angular/common/http';
+import {FooterComponent} from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HttpClientModule, RouterOutlet, HeaderComponent, LecturesSubjectsComponent, LecturesComponent, LecturePageComponent, LectureGroupComponent, LectureAdminComponent],
+  imports: [HttpClientModule, RouterOutlet, HeaderComponent, LecturesSubjectsComponent, LecturesComponent, LecturePageComponent, LectureGroupComponent, LectureAdminComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

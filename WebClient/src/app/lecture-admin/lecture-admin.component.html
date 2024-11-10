@@ -10,9 +10,13 @@
       <option [ngValue]="null" disabled selected>Выберите группу</option>
       <option *ngFor="let group of selectedSubject?.subjectGroups" [value]="group.id">{{ group.name }}</option>
     </select>
+    <input [(ngModel)]="classTitle">
   </div>
   <div>
     <ng-container #dynamicComponentContainer></ng-container>
-    <button (click)="addTextComponent()">Добавить текстовое поле</button>
+    <button (click)="addTextComponent()">Добавить текст</button>
+    <button (click)="addListComponent()">Добавить список</button>
+    <button (click)="addImageComponent()">Добавить картинки</button>
+    <button (click)="getAllComponentValues()">qqqqqqqqqqqqq</button>
   </div>
 </div>
