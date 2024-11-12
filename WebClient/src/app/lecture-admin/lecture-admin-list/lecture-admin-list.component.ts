@@ -25,8 +25,10 @@ export class LectureAdminListComponent implements AdminComponent{
     d7:'',
     d8:'',
     d9:'',
-    d10:''
+    d10:'',
+    index : 0
   };
   moveUp!: () => void;
   moveDown!: () => void;
+  remove!: () => void;
 }

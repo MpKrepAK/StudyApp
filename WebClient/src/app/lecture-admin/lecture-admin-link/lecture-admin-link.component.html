@@ -1,0 +1,12 @@
+<div>
+  <label>Заголовок: <input [(ngModel)]="data.title" /></label>
+  <label>Надпись: <input [(ngModel)]="data.linkText" /></label>
+  <label>Ссылка: <input [(ngModel)]="data.link" /></label>
+
+</div>
+
+<div>
+  <button (click)="moveUp()">Выше</button>
+  <button (click)="moveDown()">Ниже</button>
+  <button (click)="remove()">Удалить</button>
+</div>

@@ -29,7 +29,7 @@ export class LecturesComponent implements OnInit{
     this.route.paramMap.subscribe(params => {
       // @ts-ignore
       this.subjectId = +params.get('id');
-      this.http.get<SubjectGroup[]>("http://localhost:8080/api/subject-groups?subjectId="+this.subjectId).subscribe(x => {
+      this.http.get<SubjectGroup[]>("http://26.15.183.167:8080/api/subject-groups?subjectId="+this.subjectId).subscribe(x => {
         this.groups = x;
       });
     });

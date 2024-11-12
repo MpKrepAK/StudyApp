@@ -15,8 +15,10 @@ import {AdminComponent} from '../admin-component';
 export class LectureAdminTextComponent implements AdminComponent {
   public data: TextAdminData = {
     title:'',
-    text:''
+    text:'',
+    index : 0
   };
   moveUp!: () => void;
   moveDown!: () => void;
+  remove!: () => void;
 }

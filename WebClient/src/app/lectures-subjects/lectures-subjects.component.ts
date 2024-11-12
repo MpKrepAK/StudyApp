@@ -23,7 +23,7 @@ export class LecturesSubjectsComponent implements OnInit {
   constructor(private http : HttpClient) {}
 
   ngOnInit() {
-    this.http.get<AcademicSubject[]>("http://localhost:8080/api/academic-subjects").subscribe(x => {
+    this.http.get<AcademicSubject[]>("http://26.15.183.167:8080/api/academic-subjects").subscribe(x => {
       this.subjects = x;
     });
   }

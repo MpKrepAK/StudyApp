@@ -39,7 +39,7 @@ export class LecturePageComponent implements OnInit{
     this.route.paramMap.subscribe(params => {
       // @ts-ignore
       this.groupId = +params.get('id');
-      this.http.get<GroupClasses>("http://localhost:8080/api/group-classes?id="+this.groupId).subscribe(x => {
+      this.http.get<GroupClasses>("http://26.15.183.167:8080/api/group-classes?id="+this.groupId).subscribe(x => {
         this.groupClass = x;
       });
     });

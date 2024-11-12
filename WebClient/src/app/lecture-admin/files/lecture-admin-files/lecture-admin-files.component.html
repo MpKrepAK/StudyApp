@@ -1,6 +1,10 @@
 <div>
-  <label>Заголовок: <input [(ngModel)]="data.title"></label>
-  <label>Текст: <input [(ngModel)]="data.text"></label>
+  <label>Заголовок: <input [(ngModel)]="data.title" /></label>
+
+</div>
+
+<div>
+  <input type="file" (change)="onFilesSelected($event)" multiple/>
   <button (click)="moveUp()">Выше</button>
   <button (click)="moveDown()">Ниже</button>
   <button (click)="remove()">Удалить</button>
