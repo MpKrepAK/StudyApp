@@ -3,5 +3,5 @@ import {AbstractPageElement} from '../abstract-page-element';
 
 export interface PageImageElement extends AbstractPageElement {
   title : string;
-  images : ConcreteImage[];
+  elements : ConcreteImage[];
 }

@@ -1,7 +1,7 @@
 <h2 *ngIf="element.title!=''">{{element.title}}</h2>
 <ol *ngIf="element.isOrdered">
-  <li *ngFor="let item of element.data">{{item}}</li>
+  <li *ngFor="let item of element.elements">{{item.data}}</li>
 </ol>
 <ul *ngIf="!element.isOrdered">
-  <li *ngFor="let item of element.data">{{item}}</li>
+  <li *ngFor="let item of element.elements">{{item.data}}</li>
 </ul>

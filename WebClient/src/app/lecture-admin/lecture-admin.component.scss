@@ -1,0 +1,35 @@
+h2{
+  font-size: 2.5em;
+}
+label{
+  display: grid;
+  font-size: 1.5em;
+  gap: 3px;
+  margin-bottom: 10px;
+}
+input, select, textarea{
+  font-size: 0.7em;
+  width: 100%;
+}
+
+.items-wrapper{
+  display: grid;
+  gap: 10px;
+}
+.btn-wrapper{
+  width: 300px;
+  display: grid;
+  margin: 10px auto 40px auto;
+  gap: 10px;
+}
+button{
+  font-size: 1.5em;
+  display: grid;
+  width: 100%;
+  padding: 15px;
+  border: transparent;
+  background: #fafaa2;
+}
+.red-btn{
+  background: #fa9595;
+}

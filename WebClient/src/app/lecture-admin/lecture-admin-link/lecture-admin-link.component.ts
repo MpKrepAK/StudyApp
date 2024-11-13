@@ -11,7 +11,7 @@ import {LinkAdminData} from './link-admin-data';
         FormsModule
     ],
   templateUrl: './lecture-admin-link.component.html',
-  styleUrl: './lecture-admin-link.component.scss'
+  styleUrls: ['./lecture-admin-link.component.scss', '../admin.scss']
 })
 export class LectureAdminLinkComponent implements AdminComponent{
   public data: LinkAdminData = {

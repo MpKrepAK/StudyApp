@@ -11,7 +11,7 @@ import {AdminComponent} from '../admin-component';
     FormsModule
   ],
   templateUrl: './lecture-admin-list.component.html',
-  styleUrl: './lecture-admin-list.component.scss'
+  styleUrls: ['./lecture-admin-list.component.scss', "../admin.scss"]
 })
 export class LectureAdminListComponent implements AdminComponent{
   public data: ListAdminData = {
@@ -26,7 +26,8 @@ export class LectureAdminListComponent implements AdminComponent{
     d8:'',
     d9:'',
     d10:'',
-    index : 0
+    index : 0,
+    ordered : "ordered"
   };
   moveUp!: () => void;
   moveDown!: () => void;

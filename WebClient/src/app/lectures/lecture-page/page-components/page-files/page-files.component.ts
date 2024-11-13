@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {PageFileElement} from './page-file-element';
 import {NgForOf} from '@angular/common';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-page-files',
@@ -14,4 +15,5 @@ import {NgForOf} from '@angular/common';
 export class PageFilesComponent {
   @Input()
   element! : PageFileElement;
+  protected readonly environment = environment;
 }

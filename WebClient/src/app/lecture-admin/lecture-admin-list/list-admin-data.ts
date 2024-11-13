@@ -12,4 +12,5 @@ export interface ListAdminData extends AbstractAdminData{
   d8 : string;
   d9 : string;
   d10 : string;
+  ordered : string;
 }

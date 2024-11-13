@@ -12,7 +12,7 @@ import {VideoAdminData} from './video-admin-data';
     FormsModule
   ],
   templateUrl: './lecture-admin-video.component.html',
-  styleUrl: './lecture-admin-video.component.scss'
+  styleUrls: ['./lecture-admin-video.component.scss', '../../admin.scss']
 })
 export class LectureAdminVideoComponent implements AdminComponent{
   public data: VideoAdminData = {

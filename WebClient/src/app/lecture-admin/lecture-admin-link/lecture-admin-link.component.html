@@ -1,12 +1,22 @@
-<div>
-  <label>Заголовок: <input [(ngModel)]="data.title" /></label>
-  <label>Надпись: <input [(ngModel)]="data.linkText" /></label>
-  <label>Ссылка: <input [(ngModel)]="data.link" /></label>
+<div class="add-element-main">
+  <div class="left-side">
+    <h2>Ссылка</h2>
+    <label>Заголовок: <input [(ngModel)]="data.title" /></label>
+    <label>Надпись: <input [(ngModel)]="data.linkText" /></label>
+    <label>Ссылка: <input [(ngModel)]="data.link" /></label>
 
-</div>
+  </div>
 
-<div>
-  <button (click)="moveUp()">Выше</button>
-  <button (click)="moveDown()">Ниже</button>
-  <button (click)="remove()">Удалить</button>
+  <div class="right-side">
+    <button class="up-btn" (click)="moveUp()">
+      <img src="/up-arrow.png" alt="Выше" width="32" height="32">
+    </button>
+    <button class="down-btn" (click)="moveDown()">
+      <img src="/down-arrow.png" alt="Выше" width="32" height="32">
+    </button>
+    <button class="delete-btn" (click)="remove()">
+      <img src="/delete.png" alt="Выше" width="32" height="32">
+    </button>
+  </div>
+
 </div>

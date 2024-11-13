@@ -18,3 +18,27 @@ a{
     color: #363636;
   }
 }
+div.add-element-main{
+  padding: 10px;
+  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 32px;
+  background: #ccf8f3;
+  border-radius: 15px;
+}
+div.left-side{
+  display: grid;
+}
+div.right-side{
+  display: grid;
+  height: 96px;
+  gap: 10px;
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  button img {
+    display: block;
+  }
+}

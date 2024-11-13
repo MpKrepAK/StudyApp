@@ -10,7 +10,7 @@ import {AdminComponent} from '../admin-component';
     FormsModule
   ],
   templateUrl: './lecture-admin-text.component.html',
-  styleUrl: './lecture-admin-text.component.scss'
+  styleUrls: ['./lecture-admin-text.component.scss', "../admin.scss"]
 })
 export class LectureAdminTextComponent implements AdminComponent {
   public data: TextAdminData = {

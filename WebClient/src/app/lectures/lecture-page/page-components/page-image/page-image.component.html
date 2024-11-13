@@ -1,7 +1,7 @@
 <div>
   <h2>{{element.title}}</h2>
-  <a href="" *ngFor="let image of element.images">
-    <img [src]="image.link" alt="file.png">
+  <a href="" *ngFor="let image of element.elements">
+    <img [src]="environment.apiUrl+'/images/'+image.data" alt="file.png">
     <p>{{image.name}}</p>
   </a>
 </div>

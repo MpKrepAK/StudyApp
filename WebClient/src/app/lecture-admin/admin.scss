@@ -1,0 +1,23 @@
+h2{
+  font-size: 2em;
+  margin: 0;
+}
+label{
+  display: grid;
+  font-size: 1.5em;
+  gap: 3px;
+  margin-bottom: 10px;
+}
+input, textarea{
+  border: none;
+  font-size: 0.7em;
+  width: 100%;
+  max-width: 100%;
+  resize: vertical;
+}
+select{
+  border: none;
+  display: grid;
+  font-size: 1.3em;
+  width: 100%;
+}

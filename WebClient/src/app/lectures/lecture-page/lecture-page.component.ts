@@ -12,6 +12,9 @@ import {PageImageElement} from './page-components/page-image/page-image-element'
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 import {GroupClasses} from '../lecture-group/groupClasses';
+import { environment } from '../../../environments/environment';
+import {PageLinkElement} from './page-components/page-link/page-link-element';
+import {PageLinkComponent} from './page-components/page-link/page-link.component';
 
 @Component({
   selector: 'app-lecture-page',
@@ -23,7 +26,8 @@ import {GroupClasses} from '../lecture-group/groupClasses';
     PageListComponent,
     PageFilesComponent,
     PageImageComponent,
-    HttpClientModule
+    HttpClientModule,
+    PageLinkComponent
   ],
   templateUrl: './lecture-page.component.html',
   styleUrl: './lecture-page.component.scss'
@@ -39,8 +43,11 @@ export class LecturePageComponent implements OnInit{
     this.route.paramMap.subscribe(params => {
       // @ts-ignore
       this.groupId = +params.get('id');
-      this.http.get<GroupClasses>("http://26.15.183.167:8080/api/group-classes?id="+this.groupId).subscribe(x => {
-        this.groupClass = x;
+      this.http.get<GroupClasses>(environment.apiUrl+"/api/group-classes?id="+this.groupId).subscribe(x => {
+        this.groupClass= x;
+
+        this.groupClass.elements = this.groupClass.elements.sort((a, b) => a.index - b.index);
+        console.log(this.groupClass);
       });
     });
   }
@@ -58,5 +65,8 @@ export class LecturePageComponent implements OnInit{
   }
   isImageElement(element: AbstractPageElement):element is PageImageElement {
     return element.type==='image';
+  }
+  isLinkElement(element: AbstractPageElement):element is PageLinkElement {
+    return element.type==='link';
   }
 }

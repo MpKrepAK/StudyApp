@@ -113,6 +113,7 @@ export class LectureAdminComponent implements OnInit{
       } else if (isListAdminData(element)) {
         formData.append(`listElements[${listIndex}].index`, globalIndex.toString());
         formData.append(`listElements[${listIndex}].title`, element.title);
+        formData.append(`listElements[${listIndex}].ordered`, element.ordered);
         formData.append(`listElements[${listIndex}].d1`, element.d1 || '');
         formData.append(`listElements[${listIndex}].d2`, element.d2 || '');
         formData.append(`listElements[${listIndex}].d3`, element.d3 || '');

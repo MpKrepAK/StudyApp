@@ -18,7 +18,12 @@ import mpkrepak.studyapp.server.domain.GroupClass;
         property = "type"
 )
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = TextPageElement.class, name = "text")
+        @JsonSubTypes.Type(value = TextPageElement.class, name = "text"),
+        @JsonSubTypes.Type(value = ListPageElement.class, name = "list"),
+        @JsonSubTypes.Type(value = LinkPageElement.class, name = "link"),
+        @JsonSubTypes.Type(value = FilePageElement.class, name = "file"),
+        @JsonSubTypes.Type(value = ImagePageElement.class, name = "image"),
+        @JsonSubTypes.Type(value = VideoPageElement.class, name = "video"),
 })
 public class AbstractPageElement {
     @Id

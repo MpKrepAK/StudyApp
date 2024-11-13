@@ -11,7 +11,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     FormsModule
   ],
   templateUrl: './lecture-admin-files.component.html',
-  styleUrl: './lecture-admin-files.component.scss'
+  styleUrls: ['./lecture-admin-files.component.scss', '../../admin.scss']
 })
 export class LectureAdminFilesComponent implements AdminComponent{
   public data: FileAdminData = {

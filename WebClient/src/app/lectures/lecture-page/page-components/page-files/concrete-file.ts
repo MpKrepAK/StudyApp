@@ -1,4 +1,4 @@
 export interface ConcreteFile {
-  link : string;
+  data : string;
   fileType : string;
 }

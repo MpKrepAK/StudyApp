@@ -3,5 +3,5 @@ import {ConcreteFile} from './concrete-file';
 
 export interface PageFileElement extends AbstractPageElement{
   title : string;
-  files : ConcreteFile[];
+  elements : ConcreteFile[];
 }

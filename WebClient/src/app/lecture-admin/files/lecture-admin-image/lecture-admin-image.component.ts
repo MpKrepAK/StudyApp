@@ -12,7 +12,7 @@ import {HttpClient} from '@angular/common/http';
     FormsModule
   ],
   templateUrl: './lecture-admin-image.component.html',
-  styleUrl: './lecture-admin-image.component.scss'
+  styleUrls: ['./lecture-admin-image.component.scss', '../../admin.scss']
 })
 export class LectureAdminImageComponent implements AdminComponent{
   public data: FileAdminData = {

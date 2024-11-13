@@ -1,4 +1,4 @@
 export interface ConcreteImage {
-  link : string;
+  data : string;
   name : string;
 }
