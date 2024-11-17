@@ -1,0 +1,15 @@
+<div>
+  <h2>Группы</h2>
+  <button (click)="add()" class="add">Создать</button>
+  <div class="subject" *ngFor="let groupClasses of subjectGroups">
+    <div>{{groupClasses.id}}</div>
+    <div>{{groupClasses.name}}</div>
+    <div>{{groupClasses.index}}</div>
+    <button (click)="info(groupClasses.id)">
+      <img src="/info.png" alt="ИНФО" width="64" height="64">
+    </button>
+    <button (click)="next(groupClasses.id)">
+      <img src="/info_arrow.png" alt="ДАЛЕЕ" width="64" height="64">
+    </button>
+  </div>
+</div>

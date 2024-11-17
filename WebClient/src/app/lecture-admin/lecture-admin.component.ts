@@ -1,5 +1,5 @@
 import {Component, ComponentRef, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
-import {NgForOf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import {AcademicSubject} from '../lectures-subjects/academicSubject';
 import {HttpClient, HttpClientModule, HttpHeaders} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
@@ -16,6 +16,7 @@ import {LectureAdminVideoComponent} from './files/lecture-admin-video/lecture-ad
 import {VideoAdminData} from './files/lecture-admin-video/video-admin-data';
 import {LectureAdminLinkComponent} from './lecture-admin-link/lecture-admin-link.component';
 import {LinkAdminData} from './lecture-admin-link/link-admin-data';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-lecture-admin',
@@ -23,7 +24,8 @@ import {LinkAdminData} from './lecture-admin-link/link-admin-data';
   imports: [
     NgForOf,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgIf
   ],
   templateUrl: './lecture-admin.component.html',
   styleUrl: './lecture-admin.component.scss'
@@ -33,6 +35,7 @@ export class LectureAdminComponent implements OnInit{
   subjects : AcademicSubject[] = [];
   selectedSubject?: AcademicSubject;
   classTitle: string='';
+  isLoadingVisible : boolean =false;
 
   @ViewChild('dynamicComponentContainer', { read: ViewContainerRef })
   containerRef!: ViewContainerRef;
@@ -43,7 +46,7 @@ export class LectureAdminComponent implements OnInit{
   }
 
   ngOnInit(){
-    this.http.get<AcademicSubject[]>("http://localhost:8080/api/academic-subjects").subscribe(x => {
+    this.http.get<AcademicSubject[]>(environment.apiUrl+"/api/academic-subjects").subscribe(x => {
       this.subjects = x;
     });
   }
@@ -53,6 +56,7 @@ export class LectureAdminComponent implements OnInit{
 
 
   getAllComponentValues() {
+    this.isLoadingVisible = true;
     const values = this.componentRefs.map(ref => ref.instance.data);
 
     const isTextAdminData = (data: any): data is TextAdminData => {
@@ -162,90 +166,17 @@ export class LectureAdminComponent implements OnInit{
       globalIndex++;
     });
 
-    this.http.post("http://localhost:8080/api/admin/page", formData).subscribe(
+    this.http.post(environment.apiUrl+"/api/admin/page", formData).subscribe(
       response => {
         console.log('Response from server:', response);
+        this.isLoadingVisible = false;
       },
       error => {
         console.error('Ошибка при отправке данных:', error);
+        this.isLoadingVisible = false;
       }
     );
 
-
-    // let textElements = values.filter(isTextAdminData);
-    // let listElements = values.filter(isListAdminData);
-    // let imageElements = values.filter(isImageAdminData);
-    // let fileElements = values.filter(isFileAdminData);
-    // let videoElements = values.filter(isVideoAdminData);
-    // let linkElements = values.filter(isLinkAdminData);
-    //
-    // const formData = new FormData();
-    // formData.append('title', this.classTitle);
-    // formData.append('subjectId', String(this.selectedSubject?.id));
-    // formData.append('groupId', String(this.selectedGroupId));
-    //
-    // textElements.forEach((element, index) => {
-    //   formData.append(`textElements[${index}].title`, element.title);
-    //   formData.append(`textElements[${index}].text`, element.text);
-    // });
-    //
-    // listElements.forEach((element, index) => {
-    //   formData.append(`listElements[${index}].title`, element.title);
-    //   formData.append(`listElements[${index}].d1`, element.d1);
-    //   formData.append(`listElements[${index}].d2`, element.d2);
-    //   formData.append(`listElements[${index}].d3`, element.d3);
-    //   formData.append(`listElements[${index}].d4`, element.d4);
-    //   formData.append(`listElements[${index}].d5`, element.d5);
-    //   formData.append(`listElements[${index}].d6`, element.d6);
-    //   formData.append(`listElements[${index}].d7`, element.d7);
-    //   formData.append(`listElements[${index}].d8`, element.d8);
-    //   formData.append(`listElements[${index}].d9`, element.d9);
-    //   formData.append(`listElements[${index}].d10`, element.d10);
-    // });
-    //
-    // imageElements.forEach((element, index) => {
-    //   formData.append(`imageElements[${index}].title`, element.title);
-    //   if (element.files) {
-    //     for (let i = 0; i < element.files.length; i++) {
-    //       formData.append(`imageElements[${index}].images`, element.files[i]);
-    //     }
-    //   }
-    // });
-    //
-    // linkElements.forEach((element, index) => {
-    //   formData.append(`linkElements[${index}].title`, element.title);
-    //   formData.append(`linkElements[${index}].linkText`, element.linkText);
-    //   formData.append(`linkElements[${index}].link`, element.link);
-    // });
-    //
-    //
-    // fileElements.forEach((element, index) => {
-    //   formData.append(`fileElements[${index}].title`, element.title);
-    //   if (element.files) {
-    //     for (let i = 0; i < element.files.length; i++) {
-    //       formData.append(`fileElements[${index}].files`, element.files[i]);
-    //     }
-    //   }
-    // });
-    //
-    // videoElements.forEach((element, index) => {
-    //   formData.append(`videoElements[${index}].title`, element.title || '');
-    //
-    //   if (element.video && element.video instanceof FileList && element.video.length > 0) {
-    //     formData.append(`videoElements[${index}].video`, element.video[0]);
-    //   } else {
-    //     console.warn(`Video element at index ${index} is not a valid File`, element.video);
-    //   }
-    // });
-    //
-    // this.http.post("http://localhost:8080/api/admin/page", formData).subscribe(
-    //   response => {
-    //     console.log('Response from server:', response);
-    //   },
-    //   error => {
-    //     console.error('Ошибка при отправке данных:', error);
-    //   }
-    // );
   }
 
 

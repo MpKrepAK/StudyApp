@@ -4,6 +4,7 @@ import {NgForOf} from '@angular/common';
 import {AcademicSubject} from './academicSubject';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-lectures-subjects',
@@ -23,7 +24,7 @@ export class LecturesSubjectsComponent implements OnInit {
   constructor(private http : HttpClient) {}
 
   ngOnInit() {
-    this.http.get<AcademicSubject[]>("http://26.15.183.167:8080/api/academic-subjects").subscribe(x => {
+    this.http.get<AcademicSubject[]>(environment.apiUrl+"/api/academic-subjects").subscribe(x => {
       this.subjects = x;
     });
   }

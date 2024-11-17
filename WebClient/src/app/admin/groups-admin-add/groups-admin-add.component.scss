@@ -1,0 +1,28 @@
+div{
+  display: grid;
+
+  h2{
+    font-size: 2em;
+  }
+  label, input, button{
+    font-size: 1.3em;
+    border: transparent;
+  }
+  input{
+    margin-left: 10px;
+  }
+  button{
+    border-radius: 15px;
+    padding: 10px;
+    cursor: pointer;
+  }
+}
+button.add{
+  margin-top: 20px;
+  width: 100%;
+  font-size: 1.4em;
+  padding: 10px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  background: #a8faa2;
+}

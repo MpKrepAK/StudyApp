@@ -1,0 +1,27 @@
+div{
+  display: grid;
+
+  h2{
+    font-size: 2em;
+  }
+  label, input, button{
+    font-size: 1.3em;
+    border: transparent;
+  }
+  input{
+    margin-left: 10px;
+  }
+  button{
+    border-radius: 15px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  button.update{
+    margin-top: 20px;
+    background: #fafaa2;
+  }
+  button.delete{
+    margin-top: 20px;
+    background: #fa9595;
+  }
+}

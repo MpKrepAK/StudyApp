@@ -15,4 +15,7 @@ spring:
       max-file-size: 1000MB
       max-request-size: 2000MB
 
+  web:
+
+
 images_path: D:\data\images

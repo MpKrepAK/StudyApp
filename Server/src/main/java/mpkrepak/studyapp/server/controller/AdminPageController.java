@@ -184,25 +184,6 @@ public class AdminPageController {
             imageElementRepository.saveAll(data);
         });
 
-//        addData.getFileElements().forEach(x->{
-//            var arr = Arrays.stream(x.getFiles()).map(MultipartFile::getOriginalFilename).toList();
-//            var data = arr.stream().map(e->{
-//                var d = new FileElement();
-//                d.setData(e);
-//                return d;
-//            }).collect(Collectors.toSet());
-//            FilePageElement element = new FilePageElement();
-//            element.setTitle(x.getTitle());
-//            element.setIndex(x.getIndex());
-//            element.setType("file");
-//            element.setGroup(newGC);
-//            element.setElements(data);
-//            var newEnt = filePageElementRepository.save(element);
-//            data.forEach(d->{
-//                d.setFilePageElement(newEnt);
-//            });
-//            fileElementRepository.saveAll(data);
-//        });
 
         addData.getFileElements().forEach(x -> {
             var arr = Arrays.stream(x.getFiles())

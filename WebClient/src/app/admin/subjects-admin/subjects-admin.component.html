@@ -1,0 +1,14 @@
+<div>
+  <h2>Предметы</h2>
+  <button (click)="add()" class="add">Создать</button>
+  <div class="subject" *ngFor="let subject of subjects">
+    <div>{{subject.id}}</div>
+    <div>{{subject.name}}</div>
+    <button (click)="info(subject.id)">
+      <img src="/info.png" alt="ИНФО" width="64" height="64">
+    </button>
+    <button (click)="next(subject.id)">
+      <img src="/info_arrow.png" alt="ДАЛЕЕ" width="64" height="64">
+    </button>
+  </div>
+</div>

@@ -3,15 +3,23 @@
     StudyApp
   </a>
 
-  <nav>
+  <button class="menu-toggle" (click)="toggleMenu()">&#9776;</button>
+
+  <nav [class.open]="isMenuOpen">
     <ul>
       <li>
+        <a href="#">Админ-панель</a>
+      </li>
+      <li>
         <a href="#">Тесты</a>
-        <a href="#">Лекции</a>
-        <a href="#">О приложении</a>
+      </li>
+      <li>
+        <button (click)="logout()">
+          <img src="/logout.png" width="64" height="64">
+        </button>
       </li>
     </ul>
   </nav>
 
-  <div class="profile"></div>
+
 </header>

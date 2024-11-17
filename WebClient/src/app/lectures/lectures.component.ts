@@ -6,6 +6,7 @@ import {ActivatedRoute} from '@angular/router';
 import {BehaviorSubject} from 'rxjs';
 import {AcademicSubject} from '../lectures-subjects/academicSubject';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-lectures',
@@ -29,7 +30,7 @@ export class LecturesComponent implements OnInit{
     this.route.paramMap.subscribe(params => {
       // @ts-ignore
       this.subjectId = +params.get('id');
-      this.http.get<SubjectGroup[]>("http://26.15.183.167:8080/api/subject-groups?subjectId="+this.subjectId).subscribe(x => {
+      this.http.get<SubjectGroup[]>(environment.apiUrl+"/api/subject-groups?subjectId="+this.subjectId).subscribe(x => {
         this.groups = x;
       });
     });

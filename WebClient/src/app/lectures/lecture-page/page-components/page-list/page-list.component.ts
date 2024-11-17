@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {PageTextElement} from '../page-text/page-text-element';
 import {PageListElement} from './page-list-element';
 import {NgForOf, NgIf} from '@angular/common';
@@ -13,7 +13,11 @@ import {NgForOf, NgIf} from '@angular/common';
   templateUrl: './page-list.component.html',
   styleUrl: './page-list.component.scss'
 })
-export class PageListComponent {
+export class PageListComponent implements OnInit{
+  ngOnInit(): void {
+    this.element.elements=this.element.elements.sort((a, b) => a.id - b.id)
+    console.log(this.element)
+  }
   @Input()
   element! : PageListElement;
 }

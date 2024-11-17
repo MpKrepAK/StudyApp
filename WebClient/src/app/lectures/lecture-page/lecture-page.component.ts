@@ -15,6 +15,8 @@ import {GroupClasses} from '../lecture-group/groupClasses';
 import { environment } from '../../../environments/environment';
 import {PageLinkElement} from './page-components/page-link/page-link-element';
 import {PageLinkComponent} from './page-components/page-link/page-link.component';
+import {PageVideoElement} from './page-components/page-video/page-video-element';
+import {PageVideoComponent} from './page-components/page-video/page-video.component';
 
 @Component({
   selector: 'app-lecture-page',
@@ -27,7 +29,8 @@ import {PageLinkComponent} from './page-components/page-link/page-link.component
     PageFilesComponent,
     PageImageComponent,
     HttpClientModule,
-    PageLinkComponent
+    PageLinkComponent,
+    PageVideoComponent
   ],
   templateUrl: './lecture-page.component.html',
   styleUrl: './lecture-page.component.scss'
@@ -55,11 +58,9 @@ export class LecturePageComponent implements OnInit{
   isTextElement(element : AbstractPageElement): element is PageTextElement{
     return element.type==='text';
   }
-
   isListElement(element: AbstractPageElement):element is PageListElement {
     return element.type==='list';
   }
-
   isFileElement(element: AbstractPageElement):element is PageFileElement {
     return element.type==='file';
   }
@@ -68,5 +69,8 @@ export class LecturePageComponent implements OnInit{
   }
   isLinkElement(element: AbstractPageElement):element is PageLinkElement {
     return element.type==='link';
+  }
+  isVideoElement(element: AbstractPageElement):element is PageVideoElement {
+    return element.type==='video';
   }
 }

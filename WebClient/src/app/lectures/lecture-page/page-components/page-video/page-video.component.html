@@ -1,0 +1,7 @@
+<div>
+  <h2>{{element.title}}</h2>
+  <video width="600" controls>
+    <source [src]="environment.apiUrl+'/videos/'+element.videoPath" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>

@@ -34,6 +34,9 @@
       <button (click)="addVideoComponent()">Добавить видео</button>
 
     </div>
+    <div [class.hide]="!isLoadingVisible" class="loading">
+      <img class="loading_img" src="/loading.png" alt="ЗАГРУЗКА" width="64" height="64">
+    </div>
     <button class="red-btn" (click)="getAllComponentValues()">Сохранить</button>
   </div>
 </div>

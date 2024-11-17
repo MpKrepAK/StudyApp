@@ -3,6 +3,6 @@ import {ElementData} from '../element-data';
 
 export interface PageListElement extends AbstractPageElement{
   title : string;
-  isOrdered : boolean;
+  ordered : boolean;
   elements: ElementData[];
 }

@@ -33,3 +33,26 @@ button{
 .red-btn{
   background: #fa9595;
 }
+.loading{
+  display: grid;
+  place-items: center;
+  place-content: center;
+
+}
+.hide{
+  visibility: collapse;
+
+}
+.loading_img {
+  animation: spin 3s infinite linear;
+  margin: 10px 0;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

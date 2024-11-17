@@ -1,52 +1,112 @@
-$link-color : #939393;
-$profile-wh : 75px;
+$link-color: #939393;
+$profile-wh: 75px;
 
-header{
+header {
   margin: 10px auto 0;
   font-size: 3rem;
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  flex-wrap: wrap;
 
-  *{
+  * {
     box-sizing: border-box;
   }
 
-  a{
+  a {
     text-decoration: none;
     padding: 10px;
-    &:visited{
+    color: #363636;
+
+    &:visited,
+    &:active {
       color: $link-color;
     }
-    &:active{
-      color: $link-color;
-    }
-    &.app-link{
+
+    &.app-link {
       font-weight: bold;
     }
   }
-  nav{
-    display: flex;
-    margin: 0 auto;
-    font-size: 0.7em;
 
-    ul{
-      list-style-type : none;
-      margin: 0 auto;
-      align-content: center;
-      justify-content: stretch;
-      li{
-        a{
-          color: #363636;
-          padding: 0 30px;
-        }
+  .menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    margin: 0;
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+
+      li a {
+        color: #363636;
+        padding: 0 10px;
       }
     }
   }
 
-  .profile{
+  .profile {
     background: black;
+    background-size: cover;
     width: $profile-wh;
     height: $profile-wh;
-    border-radius: 30px;
+    border-radius: 50%;
+    cursor: pointer;
   }
+
+  // Адаптивные стили
+  @media (max-width: 1100px) {
+    .menu-toggle {
+      display: block;
+    }
+
+    nav {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 10px;
+
+      ul {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+
+    nav.open {
+      display: grid;
+      place-items: center;
+      ul{
+        display: grid;
+        place-items: center;
+        li{
+
+        }
+      }
+    }
+  }
+}
+button {
+  width: 64px;
+  height: 64px;
+  border: none;
+  cursor: pointer;
+  border: transparent;
+  background: transparent;
+}
+button img {
+  display: block;
+  border: transparent;
+  background: transparent;
 }
