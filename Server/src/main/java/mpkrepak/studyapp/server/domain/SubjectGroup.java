@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.Fetch;
 
 import java.util.HashSet;
@@ -28,6 +29,7 @@ public class SubjectGroup {
     @JsonBackReference
     @JoinColumn(name = "subject_id")
     private AcademicSubject academicSubject;
-    @OneToMany(mappedBy = "group",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "group",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<GroupClass> groupClasses;
 }

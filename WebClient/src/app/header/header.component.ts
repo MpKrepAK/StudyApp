@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import {KeycloakService} from 'keycloak-angular';
+import {NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [
+    NgIf
+  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -17,5 +20,13 @@ export class HeaderComponent {
   isMenuOpen = false;
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+  isAdmin(){
+    const roles = this.keycloakService.getUserRoles();
+
+    if (roles.includes('admin')) {
+      return true;
+    }
+    return false;
   }
 }

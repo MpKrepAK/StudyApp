@@ -1,1 +1,7 @@
-<p>classes-admin-info works!</p>
+<div>
+  <h2>Информация</h2>
+  <label>Наименование<input [(ngModel)]="subjectGroup.name"></label>
+  <label>Индекс<input [(ngModel)]="subjectGroup.index"></label>
+  <button class="update" (click)="update(subjectGroup.id)">Обновить</button>
+  <button class="delete" (click)="delete(subjectGroup.id)">Удалить</button>
+</div>

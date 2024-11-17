@@ -29,6 +29,7 @@ public class GroupClassController {
     }
     @DeleteMapping("/{id}")
     public GroupClass delete(@PathVariable Long id){
+        System.out.println("dfddfd");
         return groupClassService.delete(id);
     }
 }

@@ -38,7 +38,7 @@ export class GroupsAdminComponent implements OnInit {
     this.r.navigate(['/admin/groups/info', id]);
   }
   next(id: number){
-    this.r.navigate(['/admin/groups', id]);
+    this.r.navigate(['/admin/classes', id]);
   }
   add(){
     this.r.navigate(['/admin/groups/add', this.subjectId]);

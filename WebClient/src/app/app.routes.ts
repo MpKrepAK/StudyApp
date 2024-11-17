@@ -12,14 +12,16 @@ import {GroupsAdminAddComponent} from './admin/groups-admin-add/groups-admin-add
 import {GroupsAdminInfoComponent} from './admin/groups-admin-info/groups-admin-info.component';
 import {ClassesAdminComponent} from './admin/classes-admin/classes-admin.component';
 import {ClassesAdminInfoComponent} from './admin/classes-admin-info/classes-admin-info.component';
+import {TestsComponent} from './tests/tests.component';
 
 export const routes: Routes = [
   { path: '', component: LecturesSubjectsComponent },
+  { path: 'tests', component: TestsComponent },
   { path: 'lectures/:id', component: LecturesComponent },
   {path: 'lecture-page/:id', component : LecturePageComponent},
   { path: 'admin/lecture-add', component: LectureAdminComponent, canActivate: [AuthGuard] },
   { path: 'admin/subjects', component: SubjectsAdminComponent, canActivate: [AuthGuard] },
-  { path: 'admin/classes', component: ClassesAdminComponent, canActivate: [AuthGuard] },
+  { path: 'admin/classes/:id', component: ClassesAdminComponent, canActivate: [AuthGuard] },
   { path: 'admin/classes/info/:id', component: ClassesAdminInfoComponent, canActivate: [AuthGuard] },
   { path: 'admin/groups/add/:id', component: GroupsAdminAddComponent, canActivate: [AuthGuard] },
   { path: 'admin/groups/:id', component: GroupsAdminComponent, canActivate: [AuthGuard] },

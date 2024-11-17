@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import mpkrepak.studyapp.server.domain.classElements.AbstractPageElement;
+import org.hibernate.annotations.Cascade;
 
 import java.util.Set;
 
@@ -19,7 +20,7 @@ public class GroupClass {
     private long id;
     private String name;
     private int index;
-    @OneToMany(mappedBy = "group", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "group", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<AbstractPageElement> elements;
     @ManyToOne
     @JoinColumn(name = "group_id")

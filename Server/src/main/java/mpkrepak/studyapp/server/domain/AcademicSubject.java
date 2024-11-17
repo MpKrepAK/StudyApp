@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 
 import java.util.HashSet;
 import java.util.List;
@@ -18,6 +19,7 @@ public class AcademicSubject {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "academicSubject", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "academicSubject", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<SubjectGroup> subjectGroups;
 }

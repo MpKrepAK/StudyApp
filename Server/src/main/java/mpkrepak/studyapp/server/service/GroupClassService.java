@@ -1,5 +1,6 @@
 package mpkrepak.studyapp.server.service;
 
+import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import mpkrepak.studyapp.server.domain.AcademicSubject;
 import mpkrepak.studyapp.server.domain.GroupClass;
@@ -7,6 +8,7 @@ import mpkrepak.studyapp.server.domain.SubjectGroup;
 import mpkrepak.studyapp.server.repository.GroupClassRepository;
 import mpkrepak.studyapp.server.repository.SubjectGroupRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,6 +17,7 @@ import java.util.List;
 public class GroupClassService {
     private final GroupClassRepository groupClassRepository;
     private final SubjectGroupRepository subjectGroupRepository;
+    private final EntityManager entityManager;
     public List<GroupClass> findAll() {
         return groupClassRepository.findAll();
     }
@@ -35,7 +38,9 @@ public class GroupClassService {
     }
 
     public GroupClass delete(Long id) {
-        groupClassRepository.deleteById(id);
+        groupClassRepository.deleteElementsByGroupId(id);
+
+        groupClassRepository.deleteGroupClassById(id);
         return null;
     }
 }
