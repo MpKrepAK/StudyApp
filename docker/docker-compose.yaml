@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: keycloak_postgres
+    environment:
+      POSTGRES_DB: keycloak
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: toor
+    volumes:
+      - keycloak_data:/var/lib/postgresql/data
+    networks:
+      - keycloak-network
+    restart: always
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:23.0
+    container_name: keycloak_server
+    environment:
+      KC_DB: postgres
+      KC_DB_URL_HOST: postgres
+      KC_DB_URL_DATABASE: keycloak
+      KC_DB_USERNAME: root
+      KC_DB_PASSWORD: toor
+      KC_HOSTNAME: localhost
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+
+    ports:
+      - 7000:8080
+    depends_on:
+      - postgres
+    volumes:
+      - ./keycloak_data:/opt/keycloak/data
+    networks:
+      - keycloak-network
+    restart: always
+
+networks:
+  keycloak-network:
+    driver: bridge
+
+volumes:
+  keycloak_data:
