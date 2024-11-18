@@ -9,7 +9,7 @@ export function initializeKeycloak() {
     try {
       await keycloakService.init({
         config: {
-          url: 'http://localhost:7000', // URL вашего Keycloak сервера
+          url: 'http://192.168.1.102:7000', // URL вашего Keycloak сервера
           realm: 'app',            // Название вашего Realm
           clientId: 'web-app',  // Client ID вашего приложения
         },

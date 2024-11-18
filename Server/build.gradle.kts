@@ -34,6 +34,9 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	//testImplementation("org.springframework.security:spring-security-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	// https://mvnrepository.com/artifact/mysql/mysql-connector-java
+	implementation("mysql:mysql-connector-java:8.0.33")
+
 }
 
 tasks.withType<Test> {
