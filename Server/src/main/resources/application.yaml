@@ -1,6 +1,14 @@
+server:
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-password: admin1
+    key-store-type: PKCS12
+    key-alias: mycert
+
 spring:
   application:
     name : Server
+
 
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -18,4 +26,4 @@ spring:
   web:
 
 
-images_path: D:\data\images
+images_path: C:\data\images

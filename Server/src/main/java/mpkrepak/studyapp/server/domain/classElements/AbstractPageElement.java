@@ -7,6 +7,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.ToString;
 import mpkrepak.studyapp.server.domain.GroupClass;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Data
 @Entity
@@ -31,8 +33,9 @@ public class AbstractPageElement {
     private long id;
     private String type;
     private int index;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "group_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonBackReference
     private GroupClass group;
 

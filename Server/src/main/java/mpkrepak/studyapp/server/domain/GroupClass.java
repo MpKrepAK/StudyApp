@@ -21,6 +21,7 @@ public class GroupClass {
     private String name;
     private int index;
     @OneToMany(mappedBy = "group", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Set<AbstractPageElement> elements;
     @ManyToOne
     @JoinColumn(name = "group_id")

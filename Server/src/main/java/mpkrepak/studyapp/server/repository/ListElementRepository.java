@@ -5,5 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ListElementRepository extends JpaRepository<ListElement, Integer> {
+public interface ListElementRepository extends JpaRepository<ListElement, Long> {
+
 }

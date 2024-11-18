@@ -9,9 +9,9 @@ export function initializeKeycloak() {
     try {
       await keycloakService.init({
         config: {
-          url: 'http://192.168.1.102:7000', // URL вашего Keycloak сервера
-          realm: 'app',            // Название вашего Realm
-          clientId: 'web-app',  // Client ID вашего приложения
+          url: 'https://192.168.162.21:8443',
+          realm: 'app',
+          clientId: 'web-app',
         },
         initOptions: {
           onLoad: 'login-required',

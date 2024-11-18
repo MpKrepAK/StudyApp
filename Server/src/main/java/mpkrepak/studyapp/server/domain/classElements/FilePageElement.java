@@ -6,6 +6,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.hibernate.annotations.Cascade;
 
 import java.util.Set;
 
@@ -15,6 +16,7 @@ import java.util.Set;
 public class FilePageElement extends AbstractPageElement{
     private String title;
     @OneToMany(mappedBy = "filePageElement", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Set<FileElement> elements;
 
 }

@@ -19,4 +19,5 @@ public interface GroupClassRepository extends JpaRepository<GroupClass, Long> {
     @Modifying
     @Query(value = "DELETE FROM group_classes WHERE id = :groupId", nativeQuery = true)
     void deleteGroupClassById(@Param("groupId") Long groupId);
+
 }

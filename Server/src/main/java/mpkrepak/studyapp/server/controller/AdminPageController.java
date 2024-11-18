@@ -6,6 +6,7 @@ import mpkrepak.studyapp.server.domain.GroupClass;
 import mpkrepak.studyapp.server.domain.classElements.*;
 import mpkrepak.studyapp.server.repository.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -95,6 +96,27 @@ public class AdminPageController {
     @PostMapping
     public ResponseEntity<String> addData(@ModelAttribute AddData addData) {
         System.out.println(addData);
+        File dir = new File(videosPath);
+        if (!dir.exists()) {
+            boolean created = dir.mkdirs();
+            if (!created) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            }
+        }
+        dir = new File(filesPath);
+        if (!dir.exists()) {
+            boolean created = dir.mkdirs();
+            if (!created) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            }
+        }
+        dir = new File(imagesPath);
+        if (!dir.exists()) {
+            boolean created = dir.mkdirs();
+            if (!created) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            }
+        }
 
         var subjectGroup = subjectGroupRepository.findById(addData.getGroupId()).orElseThrow();
         var groupClass = new GroupClass();
@@ -212,8 +234,6 @@ public class AdminPageController {
 
             fileElementRepository.saveAll(data);
         });
-
-
 
 
 

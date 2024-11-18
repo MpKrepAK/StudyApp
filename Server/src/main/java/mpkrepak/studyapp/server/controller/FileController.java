@@ -34,7 +34,10 @@ public class FileController {
         File file = new File(imagesPath + "/" + filename);
 
         if (!file.exists()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            boolean created = file.mkdirs();
+            if (!created) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            }
         }
 
         Resource resource = new FileSystemResource(file);
@@ -50,7 +53,10 @@ public class FileController {
         File file = new File(filesPath + "/" + filename);
 
         if (!file.exists()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            boolean created = file.mkdirs();
+            if (!created) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            }
         }
 
         // Загружаем файл как ресурс
@@ -90,7 +96,14 @@ public class FileController {
     }
 
     @GetMapping("/videos/{filename}")
-    public Resource getVideo(@PathVariable String filename) {
-        return resourceLoader.getResource("file:" + videosPath + "/" + filename);
+    public ResponseEntity<Resource> getVideo(@PathVariable String filename) {
+        File file = new File(videosPath + "/" + filename);
+        if (!file.exists()) {
+            boolean created = file.mkdirs();
+            if (!created) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            }
+        }
+        return ResponseEntity.ok(resourceLoader.getResource("file:" + videosPath + "/" + filename));
     }
 }

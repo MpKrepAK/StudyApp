@@ -12,7 +12,7 @@ import lombok.Setter;
 public class ListElement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String data;
     @ManyToOne
     @JsonBackReference

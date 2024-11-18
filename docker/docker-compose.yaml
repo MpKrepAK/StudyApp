@@ -1,43 +1,52 @@
+version: '3.9'
+
 services:
-  postgres:
+  postgresql:
     image: postgres:15
-    container_name: keycloak_postgres
+    container_name: postgresql
+    restart: always
     environment:
-      POSTGRES_DB: keycloak
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: toor
+      POSTGRES_USER: keycloak
+      POSTGRES_PASSWORD: keycloakpassword
+      POSTGRES_DB: keycloakdb
     volumes:
-      - keycloak_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     networks:
       - keycloak-network
-    restart: always
 
   keycloak:
-    image: quay.io/keycloak/keycloak:23.0
-    container_name: keycloak_server
+    image: bitnami/keycloak:latest
+    container_name: keycloak
+    restart: always
     environment:
-      KC_DB: postgres
-      KC_DB_URL_HOST: postgres
-      KC_DB_URL_DATABASE: keycloak
-      KC_DB_USERNAME: root
-      KC_DB_PASSWORD: toor
-      KC_HOSTNAME: localhost
+      KEYCLOAK_DATABASE_HOST: postgresql
+      KEYCLOAK_DATABASE_PORT: 5432
+      KEYCLOAK_DATABASE_USER: keycloak
+      KEYCLOAK_DATABASE_PASSWORD: keycloakpassword
+      KEYCLOAK_DATABASE_NAME: keycloakdb
       KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: admin
-
-    ports:
-      - 7000:8080
-    depends_on:
-      - postgres
+      KEYCLOAK_ADMIN_PASSWORD: adminpassword
+      KC_HTTPS_CERTIFICATE_FILE: /etc/x509/https/keycloak.crt
+      KC_HTTPS_CERTIFICATE_KEY_FILE: /etc/x509/https/keycloak.key
+      KC_HOSTNAME: 192.168.162.21
+      KEYCLOAK_FRONTEND_URL: "https://192.168.162.21:8443"
     volumes:
-      - ./keycloak_data:/opt/keycloak/data
+      - ./certs:/etc/x509/https
+    ports:
+      - "8443:8443"
+    depends_on:
+      - postgresql
     networks:
       - keycloak-network
-    restart: always
+    command:
+      - kc.sh
+      - start
+      - --https-port=8443
+      - --http-enabled=false
+
+volumes:
+  postgres_data:
 
 networks:
   keycloak-network:
     driver: bridge
-
-volumes:
-  keycloak_data:

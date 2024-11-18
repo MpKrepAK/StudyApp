@@ -1,5 +1,9 @@
 {
   "devDependencies": {
     "node-sass": "^9.0.0"
+  },
+  "dependencies": {
+    "@angular/common": "^18.2.12",
+    "keycloak-angular": "^16.1.0"
   }
 }

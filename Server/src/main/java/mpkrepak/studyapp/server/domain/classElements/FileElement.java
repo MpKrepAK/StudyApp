@@ -12,10 +12,10 @@ import lombok.Setter;
 public class FileElement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String data;
     private String fileType;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JsonBackReference
     private FilePageElement filePageElement;
 }
